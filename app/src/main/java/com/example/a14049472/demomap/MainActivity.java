@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 UiSettings ui=map.getUiSettings();
                 ui.setCompassEnabled(true);
                 ui.setZoomControlsEnabled(true);
+                ui.setCompassEnabled(true);
+                ui.setMyLocationButtonEnabled(true);
 
                 int permissionCheck= ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
                 if(permissionCheck== PermissionChecker.PERMISSION_GRANTED){
