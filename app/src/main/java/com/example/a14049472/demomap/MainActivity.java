@@ -2,6 +2,7 @@ package com.example.a14049472.demomap;
 
 import android.Manifest;
 import android.app.FragmentManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AppCompatActivity;
@@ -57,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     Log.e("GMap - Permission","GPS access has not been granted");
                 }
+                if (permissionCheck != PermissionChecker.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+                    // stops the action from proceeding further as permission not
+                    //  granted yet
+                    return;
+                }
+
 
                 LatLng poi_CausewayPoint1 = new LatLng(1.436065, 103.786263);
                 Marker cp = map.addMarker(new
